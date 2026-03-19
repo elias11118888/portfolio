@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alabi Elias Borteye | Portfolio</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .skill-tag {
+            transition: all 0.3s ease;
+        }
+        .skill-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 9999px;
+            position: relative;
+            overflow: hidden;
+            height: 12px;
+        }
+        .progress-bar-inner {
+            width: 0;
+            height: 100%;
+            border-radius: 9999px;
+            background: linear-gradient(90deg, #3b82f6, #06b6d4);
+            transition: width 1.1s ease;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#10b981',
+                        dark: '#0f172a',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="text-xl font-bold text-dark">Elias<span class="text-primary">.dev</span></div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="hover:text-primary transition">About</a>
+                    <a href="#experience" class="hover:text-primary transition">Experience</a>
+                    <a href="#skills" class="hover:text-primary transition">Skills</a>
+                    <a href="#projects" class="hover:text-primary transition">Projects</a>
+                    <a href="#contact" class="hover:text-primary transition">Contact</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-dark focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <a href="#about" class="block px-4 py-2 hover:bg-gray-100">About</a>
+            <a href="#experience" class="block px-4 py-2 hover:bg-gray-100">Experience</a>
+            <a href="#skills" class="block px-4 py-2 hover:bg-gray-100">Skills</a>
+            <a href="#projects" class="block px-4 py-2 hover:bg-gray-100">Projects</a>
+            <a href="#contact" class="block px-4 py-2 hover:bg-gray-100">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-bg h-screen flex items-center justify-center text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <!-- Decorative background elements could go here -->
+        </div>
+        <div class="text-center z-10 px-4">
+            <div class="mb-4 inline-block p-3 rounded-full bg-blue-500/20 backdrop-blur-sm">
+                <i class="fas fa-code text-3xl text-blue-400"></i>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Alabi Elias Borteye</h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8">Computer Science Student | Full Stack Developer | AI Enthusiast</p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#projects" class="bg-primary hover:bg-blue-600 text-white px-8 py-3 rounded-full font-semibold transition shadow-lg shadow-blue-500/30">
+                    View Projects
+                </a>
+                <a href="#contact" class="border border-white hover:bg-white hover:text-dark text-white px-8 py-3 rounded-full font-semibold transition">
+                    Contact Me
+                </a>
+            </div>
+            
+            <!-- Social Links -->
+            <div class="mt-8 flex justify-center space-x-6">
+                <a href="https://www.linkedin.com/in/alabi-elias-92810b321" target="_blank" class="text-2xl hover:text-primary transition text-gray-300"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/elias11118888" target="_blank" class="text-2xl hover:text-primary transition text-gray-300"><i class="fab fa-github"></i></a>
+                <a href="mailto:elielielias830@gmail.com" class="text-2xl hover:text-primary transition text-gray-300"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+        
+        <!-- Scroll Down Indicator -->
+        <div class="absolute bottom-10 w-full text-center animate-bounce">
+            <i class="fas fa-chevron-down text-white text-2xl opacity-70"></i>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-dark">About Me</h2>
+            <div class="bg-slate-50 p-8 rounded-2xl shadow-sm border border-slate-100">
+                <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                    I am a motivated Computer Science student at KNUST with a strong passion for building real-world solutions. I exhibit a strong work ethic, adaptability, and great interpersonal skills. I am capable of functioning efficiently with little or no supervision while quickly learning new abilities.
+                </p>
+                <p class="text-lg text-gray-600 leading-relaxed">
+                    My journey spans from developing AI models for safety (Driver Drowsiness Detection) to building full-stack web applications and managing complex network infrastructures. I am actively involved in tech communities and constantly seeking new challenges.
+                </p>
+            </div>
+            
+            <!-- Education -->
+            <div class="mt-12">
+                <h3 class="text-2xl font-semibold mb-6">Education</h3>
+                <div class="space-y-6">
+                    <div class="flex flex-col md:flex-row justify-between border-l-4 border-primary pl-4 py-2">
+                        <div>
+                            <h4 class="text-xl font-bold">BSc. Computer Science</h4>
+                            <p class="text-gray-600">Kwame Nkrumah University of Science and Technology (KNUST)</p>
+                        </div>
+                        <span class="text-sm text-gray-500 font-semibold mt-1 md:mt-0">Jan 2021 - Aug 2024</span>
+                    </div>
+                    <div class="flex flex-col md:flex-row justify-between border-l-4 border-gray-300 pl-4 py-2">
+                        <div>
+                            <h4 class="text-xl font-bold">W.A.S.S.C.E (General Science)</h4>
+                            <p class="text-gray-600">Benkum Senior High School, Larteh</p>
+                        </div>
+                        <span class="text-sm text-gray-500 font-semibold mt-1 md:mt-0">Sep 2017 - Aug 2020</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-slate-50">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-dark">Work Experience</h2>
+            <div class="space-y-8">
+                
+                <!-- Job 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition border-l-4 border-primary">
+                    <div class="flex justify-between flex-wrap mb-2">
+                        <h3 class="text-xl font-bold">National Service (IT Officer)</h3>
+                       <!-- <span class="text-primary font-semibold">Oct 2024 - Present</span> -->
+                    </div>
+                    <p class="text-sm text-gray-500 mb-4">GIFEC (ICT COMMUNITY CENTER), Dodowa</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                        <li>Conducted IT and coding training sessions, providing technical support and digital skills education to communities.</li>
+                        <li>Assisted in technology adoption and problem-solving, enhancing digital literacy.</li>
+                    </ul>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition border-l-4 border-secondary">
+                    <div class="flex justify-between flex-wrap mb-2">
+                        <h3 class="text-xl font-bold">Network Operations </h3>
+                       <!-- <span class="text-secondary font-semibold">Jan 2023 - Dec 2023</span> -->
+                    </div>
+                    <p class="text-sm text-gray-500 mb-4">Judicial Complex Data Center, Accra</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                        <li>Hands-on experience with networking technologies, configuration, and troubleshooting.</li>
+                        <li>Developed security policies to secure important court data.</li>
+                        <li>Collaborated with teams to improve network performance.</li>
+                    </ul>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition border-l-4 border-gray-400">
+                    <div class="flex justify-between flex-wrap mb-2">
+                        <h3 class="text-xl font-bold">IT Support </h3>
+                       <!-- <span class="text-gray-500 font-semibold">Mar 2022 - Dec 2022</span>-->
+                    </div>
+                    <p class="text-sm text-gray-500 mb-4">Ministry of Communications, Accra</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                        <li>Supported system upgrades, software implementations, and network maintenance.</li>
+                        <li>Optimized IT infrastructure and troubleshooting technical issues.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-12 text-dark">Technical Skills</h2>
+
+        <!-- Top Skills (with icons, progress bars, and project links) -->
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          <div class="glass-card p-6 rounded-2xl shadow-lg transition reveal" data-progress="92%">
+            <div class="flex items-start justify-between gap-4 mb-4">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+                  <!-- React Icon -->
+                  <svg class="w-7 h-7 text-cyan-200" viewBox="0 0 841.9 595.3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                      <path d="M666.3 296.5c0 55.1-54.3 105.7-134.4 139.5-35.2 15.5-73 28.6-111.6 38.2-12.1 3.1-24.4 5.7-36.8 7.8-3.3.6-6.7 1.1-10.1 1.6-4 .5-8.1.9-12.2 1.2-3.8.3-7.7.6-11.6.7-6.5.2-13 .3-19.5.3-6.5 0-13-.1-19.5-.3-3.9-.1-7.8-.4-11.6-.7-4.1-.3-8.2-.7-12.2-1.2-3.4-.5-6.8-1-10.1-1.6-12.4-2.1-24.7-4.7-36.8-7.8-38.6-9.6-76.4-22.7-111.6-38.2-80.1-33.8-134.4-84.4-134.4-139.5s54.3-105.7 134.4-139.5c35.2-15.5 73-28.6 111.6-38.2 12.1-3.1 24.4-5.7 36.8-7.8 3.3-.6 6.7-1.1 10.1-1.6 4-.5 8.1-.9 12.2-1.2 3.9-.3 7.7-.6 11.6-.7 6.5-.2 13-.3 19.5-.3 6.5 0 13 .1 19.5.3 3.9.1 7.8.4 11.6.7 4.1.3 8.2.7 12.2 1.2 3.4.5 6.8 1 10.1 1.6 12.4 2.1 24.7 4.7 36.8 7.8 38.6 9.6 76.4 22.7 111.6 38.2 80.2 33.8 134.5 84.4 134.5 139.5z" opacity=".1"/>
+                      <path d="M520.5 78.1c-42.3-15.6-89.4-25.4-138.4-27.8-33.9-1.8-71.2-.7-109.4 3.1-38 3.8-74.5 9.7-108.5 17.4-53.2 12.7-102.4 30.1-141 51.7C50.7 144.1 22.1 178 8.1 213.4c-14 35.4-11.7 70.9 6.6 100.8 18.3 29.9 52.6 54.9 97.3 70.8 44.7 15.9 99.4 20.9 153.8 13.9 54.5-7 106.4-27.5 150-58.7 43.6-31.3 75-72.1 90-118.1 15-46-1.8-96.2-42.9-150-18.6-24.6-43.5-46.5-71.2-62.3-9.6-5.4-19.6-10-29.7-14.2z"/>
+                    </g>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold text-white">React</h3>
+                  <p class="text-sm text-gray-300">Modern UI & component-driven apps</p>
+                </div>
+              </div>
+              <span class="text-xs font-semibold text-gray-300">Advanced</span>
+            </div>
+
+            <div class="progress-bar mb-5">
+              <div class="progress-bar-inner"></div>
+            </div>
+
+            <div class="text-sm text-gray-300">
+              <p class="font-semibold mb-2">Related Projects</p>
+              <ul class="space-y-1">
+                <li><a href="#project-real-estate" class="hover:text-primary transition underline">Real Estate Website</a></li>
+                <li><a href="#project-ticketing" class="hover:text-primary transition underline">Event Ticketing System</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="glass-card p-6 rounded-2xl shadow-lg transition reveal" data-progress="85%">
+            <div class="flex items-start justify-between gap-4 mb-4">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+                  <!-- Python Icon -->
+                  <svg class="w-7 h-7 text-yellow-300" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 4c-5.8 0-10 4.2-10 10v4h20v-4c0-5.8-4.2-10-10-10zM14 10a10 10 0 0 1 20 0v2h-20v-2zM34 14v4h-20v-4h20zm-10 18c5.8 0 10-4.2 10-10v-4h-20v4c0 5.8 4.2 10 10 10zM14 34a10 10 0 0 0 20 0v-2h-20v2zM34 30v-4h-20v4h20z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold text-white">Python</h3>
+                  <p class="text-sm text-gray-300">Data science, automation & backend</p>
+                </div>
+              </div>
+              <span class="text-xs font-semibold text-gray-300">Advanced</span>
+            </div>
+
+            <div class="progress-bar mb-5">
+              <div class="progress-bar-inner"></div>
+            </div>
+
+            <div class="text-sm text-gray-300">
+              <p class="font-semibold mb-2">Related Projects</p>
+              <ul class="space-y-1">
+                <li><a href="#project-drowsiness" class="hover:text-primary transition underline">Driver Drowsiness Detection</a></li>
+                <li><a href="#project-cafe" class="hover:text-primary transition underline">Café Management System</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Core Technical Skills -->
+          <div class="glass-card p-6 rounded-2xl shadow-lg hover:scale-105 transition reveal">
+            <h3 class="text-xl font-semibold mb-4 text-white">Core Technical Skills</h3>
+            <ul class="space-y-2 text-gray-300">
+              <li><strong>Languages:</strong> JavaScript (ES6+), Python, JSON</li>
+              <li><strong>Frontend:</strong> React.js, Tailwind CSS</li>
+              <li><strong>Backend:</strong> Node.js, Express.js</li>
+              <li><strong>Databases:</strong> MySQL, MongoDB</li>
+            </ul>
+          </div>
+
+          <!-- AI & Data Skills -->
+          <div class="glass-card p-6 rounded-2xl shadow-lg hover:scale-105 transition reveal">
+            <h3 class="text-xl font-semibold mb-4 text-white">AI & Data Skills</h3>
+            <ul class="space-y-2 text-gray-300">
+              <li>Machine Learning (CNN Models)</li>
+              <li>TensorFlow, Keras</li>
+              <li>OpenCV (Computer Vision)</li>
+              <li>Data Preprocessing & Augmentation</li>
+              <li>Model Training & Evaluation</li>
+            </ul>
+          </div>
+
+          <!-- AI Tools -->
+          <div class="glass-card p-6 rounded-2xl shadow-lg hover:scale-105 transition reveal">
+            <h3 class="text-xl font-semibold mb-4 text-white">AI Design & Productivity</h3>
+            <ul class="space-y-2 text-gray-300">
+              <li>AI Image Generation</li>
+              <li>Background Removal Tools</li>
+              <li>AI Content Creation Tools</li>
+              <li>Workflow Automation Tools</li>
+            </ul>
+          </div>
+
+          <!-- Tools -->
+          <div class="glass-card p-6 rounded-2xl shadow-lg hover:scale-105 transition reveal">
+            <h3 class="text-xl font-semibold mb-4 text-white">Tools & Environment</h3>
+            <ul class="space-y-2 text-gray-300">
+              <li>Git & GitHub</li>
+              <li>Postman</li>
+              <li>VS Code</li>
+            </ul>
+          </div>
+
+          <!-- DevOps -->
+          <div class="glass-card p-6 rounded-2xl shadow-lg hover:scale-105 transition reveal">
+            <h3 class="text-xl font-semibold mb-4 text-white">Deployment & DevOps</h3>
+            <ul class="space-y-2 text-gray-300">
+              <li>Vercel</li>
+              <li>Render</li>
+            </ul>
+          </div>
+
+          <!-- Operating Systems -->
+          <div class="glass-card p-6 rounded-2xl shadow-lg hover:scale-105 transition reveal">
+            <h3 class="text-xl font-semibold mb-4 text-white">Operating Systems</h3>
+            <ul class="space-y-2 text-gray-300">
+              <li>Windows</li>
+              <li>Linux</li>
+            </ul>
+          </div>
+
+          <!-- Design & Media -->
+          <div class="glass-card p-6 rounded-2xl shadow-lg hover:scale-105 transition md:col-span-2 lg:col-span-3 reveal">
+            <h3 class="text-xl font-semibold mb-4 text-white">Design & Media Skills</h3>
+            <div class="flex flex-wrap gap-3">
+              <span class="skill-tag bg-slate-800 px-3 py-1 rounded-full text-gray-300">Graphic Design</span>
+              <span class="skill-tag bg-slate-800 px-3 py-1 rounded-full text-gray-300">Video Editing</span>
+              <span class="skill-tag bg-slate-800 px-3 py-1 rounded-full text-gray-300">Adobe Photoshop</span>
+              <span class="skill-tag bg-slate-800 px-3 py-1 rounded-full text-gray-300">Lightroom</span>
+              <span class="skill-tag bg-slate-800 px-3 py-1 rounded-full text-gray-300">Illustrator</span>
+              <span class="skill-tag bg-slate-800 px-3 py-1 rounded-full text-gray-300">Canva</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+<!-- Projects Section -->
+<section id="projects" class="max-w-7xl mx-auto px-6 py-16">
+  <h2 class="text-4xl font-bold mb-12 text-center">Projects</h2>
+
+  <div class="grid md:grid-cols-2 gap-8">
+
+    <!-- Real Estate Website -->
+    <div id="project-real-estate" class="bg-gray-900 p-6 rounded-2xl shadow-lg hover:scale-105 transition">
+      <h3 class="text-xl font-semibold mb-4 text-blue-400">Real Estate Website</h3>
+      <ul class="space-y-2 text-gray-300">
+        <li>Developed a full website for a real estate company to promote properties and capture client inquiries.</li>
+        <li>Collaborated with the client to translate business requirements into a functional system.</li>
+        <li>Delivered the project on time according to specifications.</li>
+        <li>Built responsive, cross-browser compatible pages.</li>
+      </ul>
+    </div>
+
+    <!-- Driver Drowsiness Detection -->
+    <div id="project-drowsiness" class="bg-gray-900 p-6 rounded-2xl shadow-lg hover:scale-105 transition">
+      <h3 class="text-xl font-semibold mb-4 text-blue-400">Driver Drowsiness Detection</h3>
+      <ul class="space-y-2 text-gray-300">
+        <li>Developed a real-time monitoring system using Python, OpenCV, Keras, TensorFlow.</li>
+        <li>Built and trained a CNN model for drowsiness classification.</li>
+        <li>Implemented live video feed with alert system.</li>
+        <li>Enhanced safety by detecting fatigue and preventing accidents.</li>
+      </ul>
+    </div>
+
+    <!-- Cafe Management System -->
+    <div id="project-cafe" class="bg-gray-900 p-6 rounded-2xl shadow-lg hover:scale-105 transition">
+      <h3 class="text-xl font-semibold mb-4 text-blue-400">Café Management System</h3>
+      <ul class="space-y-2 text-gray-300">
+        <li>Built POS and inventory system using Django, React, PostgreSQL.</li>
+        <li>Streamlined order processing and payments.</li>
+        <li>Automated inventory tracking and stock management.</li>
+        <li>Improved efficiency and reduced waste.</li>
+      </ul>
+    </div>
+
+    <!-- Event Ticketing System -->
+    <div id="project-ticketing" class="bg-gray-900 p-6 rounded-2xl shadow-lg hover:scale-105 transition">
+      <h3 class="text-xl font-semibold mb-4 text-blue-400">Event Ticketing System</h3>
+      <ul class="space-y-2 text-gray-300">
+        <li>Built full-stack platform using React, Node.js, Express, MongoDB.</li>
+        <li>Integrated MoMo & Paystack for payments.</li>
+        <li>Developed QR e-tickets and real-time admin dashboard.</li>
+        <li>Deployed on Vercel and Render.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-20 bg-gradient-to-br from-slate-900 to-slate-800">
+  <div class="max-w-4xl mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center mb-12 text-white">Get In Touch</h2>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Location -->
+      <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20 hover:bg-white/15 transition">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+            <i class="fas fa-map-marker-alt text-2xl text-primary"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-white">Location</h3>
+        </div>
+        <p class="text-gray-300 text-lg">Accra, Ghana</p>
+      </div>
+
+      <!-- Phone -->
+      <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20 hover:bg-white/15 transition">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+            <i class="fas fa-phone text-2xl text-primary"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-white">Phone</h3>
+        </div>
+        <p class="text-gray-300 text-lg">+233 57 086 5746</p>
+        <p class="text-gray-300 text-lg">+233 59 670 6723</p>
+      </div>
+
+      <!-- WhatsApp -->
+      <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20 hover:bg-white/15 transition">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center">
+            <i class="fab fa-whatsapp text-2xl text-green-400"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-white">WhatsApp</h3>
+        </div>
+        <a href="https://wa.me/233570865746" target="_blank" class="text-gray-300 text-lg hover:text-green-400 transition">
+          +233 57 086 5746
+        </a>
+      </div>
+
+      <!-- Email -->
+      <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20 hover:bg-white/15 transition">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+            <i class="fas fa-envelope text-2xl text-primary"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-white">Email</h3>
+        </div>
+        <a href="mailto:elielielias830@gmail.com" class="text-gray-300 text-lg hover:text-primary transition">
+          elielielias830@gmail.com
+        </a>
+      </div>
+
+      <!-- Website -->
+      <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20 hover:bg-white/15 transition md:col-span-2">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+            <i class="fas fa-globe text-2xl text-primary"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-white">Website</h3>
+        </div>
+        <a href="https://www.elisportfolio.com" target="_blank" class="text-gray-300 text-lg hover:text-primary transition">
+          www.elisportfolio.com
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Scroll reveal + progress bar animation
+  document.addEventListener('DOMContentLoaded', () => {
+    const revealItems = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('visible');
+
+          const progressTarget = entry.target.dataset.progress;
+          if (progressTarget) {
+            const bar = entry.target.querySelector('.progress-bar-inner');
+            if (bar) bar.style.width = progressTarget;
+          }
+
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    revealItems.forEach((item) => {
+      observer.observe(item);
+    });
+  });
+</script>
+
+</body>
+</html>
