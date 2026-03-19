@@ -26,18 +26,58 @@
             background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
         }
         .glass-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(100, 116, 139, 0.3);
         }
 
-        /* Mobile-optimized glass cards for better readability */
-        @media (max-width: 768px) {
-            .glass-card {
-                background: rgba(30, 41, 59, 0.7);
-                backdrop-filter: blur(15px);
-                border: 1px solid rgba(100, 116, 139, 0.3);
-            }
+        /* Enhanced visibility for skills section with light background */
+        #skills .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(203, 213, 225, 0.5);
+        }
+
+        #skills .glass-card h3,
+        #skills .glass-card h4,
+        #skills h2 {
+            color: #1e293b !important;
+        }
+
+        #skills .glass-card p,
+        #skills .glass-card li,
+        #skills .glass-card ul {
+            color: #334155 !important;
+        }
+
+        #skills .glass-card strong {
+            color: #0f172a !important;
+        }
+
+        #skills .glass-card a {
+            color: #2563eb !important;
+        }
+
+        #skills .glass-card a:hover {
+            color: #1d4ed8 !important;
+        }
+
+        #skills .skill-tag {
+            background-color: rgba(241, 245, 249, 0.9) !important;
+            border: 1px solid rgba(148, 163, 184, 0.5) !important;
+            color: #334155 !important;
+        }
+
+        #skills .text-gray-300 {
+            color: #334155 !important;
+        }
+
+        #skills .text-white {
+            color: #1e293b !important;
+        }
+
+        #skills .text-sm {
+            color: #475569 !important;
         }
 
         .skill-tag {
@@ -71,43 +111,6 @@
             border-radius: 9999px;
             background: linear-gradient(90deg, #3b82f6, #06b6d4);
             transition: width 1.1s ease;
-        }
-
-        /* Mobile-optimized skills section */
-        @media (max-width: 640px) {
-            #skills {
-                background: linear-gradient(135deg, #1a1f35 0%, #0f172a 100%);
-            }
-
-            #skills h2 {
-                color: #ffffff;
-                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-            }
-
-            .glass-card h3,
-            .glass-card p,
-            .glass-card li,
-            .glass-card a {
-                color: #ffffff;
-            }
-
-            .glass-card ul li strong {
-                color: #e0f2fe;
-            }
-
-            .glass-card .text-gray-300 {
-                color: #e0f2fe !important;
-            }
-
-            .glass-card .text-white {
-                color: #ffffff !important;
-            }
-
-            .skill-tag {
-                background-color: rgba(15, 23, 42, 0.9) !important;
-                border: 1px solid rgba(100, 116, 139, 0.4);
-                color: #e0f2fe !important;
-            }
         }
     </style>
     <script>
@@ -277,7 +280,7 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-slate-50">
+    <section id="skills" class="py-20 bg-gradient-to-br from-slate-100 to-gray-200">
       <div class="max-w-7xl mx-auto px-6">
         <h2 class="text-3xl font-bold text-center mb-12 text-dark">Technical Skills</h2>
 
