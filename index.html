@@ -30,6 +30,16 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
+
+        /* Mobile-optimized glass cards for better readability */
+        @media (max-width: 768px) {
+            .glass-card {
+                background: rgba(30, 41, 59, 0.7);
+                backdrop-filter: blur(15px);
+                border: 1px solid rgba(100, 116, 139, 0.3);
+            }
+        }
+
         .skill-tag {
             transition: all 0.3s ease;
         }
@@ -61,6 +71,43 @@
             border-radius: 9999px;
             background: linear-gradient(90deg, #3b82f6, #06b6d4);
             transition: width 1.1s ease;
+        }
+
+        /* Mobile-optimized skills section */
+        @media (max-width: 640px) {
+            #skills {
+                background: linear-gradient(135deg, #1a1f35 0%, #0f172a 100%);
+            }
+
+            #skills h2 {
+                color: #ffffff;
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            }
+
+            .glass-card h3,
+            .glass-card p,
+            .glass-card li,
+            .glass-card a {
+                color: #ffffff;
+            }
+
+            .glass-card ul li strong {
+                color: #e0f2fe;
+            }
+
+            .glass-card .text-gray-300 {
+                color: #e0f2fe !important;
+            }
+
+            .glass-card .text-white {
+                color: #ffffff !important;
+            }
+
+            .skill-tag {
+                background-color: rgba(15, 23, 42, 0.9) !important;
+                border: 1px solid rgba(100, 116, 139, 0.4);
+                color: #e0f2fe !important;
+            }
         }
     </style>
     <script>
